@@ -6,7 +6,7 @@ from langchain_qdrant import QdrantVectorStore
 
 class EmbeddingSelfQuery:
     def __init__(self) -> None:
-        self.llm = ChatOpenAI(model="gpt-4.1-mini", temperature=0)
+        self.llm = ChatOpenAI(model="gpt-4.1-mini", temperature=0) #tempratura 0 para respostas mais objetivas
         self.client = QdrantClient(
             host=settings.QDRANT_HOST,
             port=settings.QDRANT_PORT,
@@ -14,7 +14,7 @@ class EmbeddingSelfQuery:
         )
 
         self.model = OpenAIEmbeddings(
-            model="text-embedding-3-large",
+            model="text-embedding-3-large", #modelo de embeddings da openai 
         )
 
     def get_qdrant_vector_store(self, collection_name: str) -> QdrantVectorStore:

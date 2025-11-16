@@ -17,7 +17,7 @@ def process_pdf_file(
     """
     Usa o LLM interno do embedder para extrair metadados e dividir em até 3 chunks
     """
-    pdf_name = os.path.basename(file_path)
+    pdf_name = os.path.basename(file_path) # transforma o pdf em MK
     result = md.convert(str(file_path))
     text_content = result.text_content or ""
 
